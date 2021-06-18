@@ -1,0 +1,174 @@
+/**
+ *中国色：金盏黄    #fcc307
+ *中国色：牡丹粉红    #eea2a4
+ *中国色：锌灰    #7a7374
+ */
+/*moon-light:#eef7f2;*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #e5e5e5;
+}
+
+ul {
+    position: relative;
+    display: flex;
+}
+
+ul li {
+    list-style: none;
+}
+
+ul li label {
+    position: relative;
+}
+
+ul li label input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/*正常模式*/
+ul li label .light-model #sun{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: #FFFFFF;
+    color: #ed556a;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: -1px -1px 4px rgba(0, 0, 0, 0.05),
+    4px 4px 6px rgba(0, 0, 0, 0.2),
+    inset -1px -1px 4px rgba(0, 0, 0, 0.05),
+    inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+ul li label .light-model .bi{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: #FFFFFF;
+    color: gray;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: -1px -1px 4px rgba(0, 0, 0, 0.05),
+    4px 4px 6px rgba(0, 0, 0, 0.2),
+    inset -1px -1px 4px rgba(0, 0, 0, 0.05),
+    inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+ul li label .light-model:before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: calc(100% - 5px);
+    height: calc(50% - 2px);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+
+ul li label input[type="checkbox"]:checked ~ .light-model .bi {
+    color: #ed556a;
+    /*正常模式下加阴影不好看*/
+    /*text-shadow: 0 0 5px #ed556a,*/
+    /*0 0 10px #ed556a;*/
+    animation: animate 2s linear infinite;
+}
+
+
+/*黑暗模式*/
+ul li label .dark-model #sun{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: #18191f;
+    color: #fcc307;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: -1px -1px 4px rgba(255, 255, 255, 0.05),
+    4px 4px 6px rgba(0, 0, 0, 0.2),
+    inset -1px -1px 4px rgba(255, 255, 255, 0.05),
+    inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+ul li label .dark-model .bi{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: #18191f;
+    color: gray;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: -1px -1px 4px rgba(255, 255, 255, 0.05),
+    4px 4px 6px rgba(0, 0, 0, 0.2),
+    inset -1px -1px 4px rgba(255, 255, 255, 0.05),
+    inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+ul li label .dark-model:before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: calc(100% - 5px);
+    height: calc(50% - 2px);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+ul li label input[type="checkbox"]:checked ~ .dark-model .bi {
+    color: #fa7e23;
+    text-shadow: 0 0 15px #fa7e23,
+    0 0 25px #fa7e23;
+    animation: animate 2s linear infinite;
+}
+
+/*动画效果*/
+@keyframes animate {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    50% {
+        filter: hue-rotate(30deg);
+    }
+    100% {
+        filter: hue-rotate(00deg);
+    }
+}
